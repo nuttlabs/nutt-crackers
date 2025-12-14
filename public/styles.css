@@ -1,0 +1,280 @@
+/* ----------------------------------------------- \\
+** Variables
+** ----------------------------------------------- */
+
+:root {
+    --color__vPurple: #5200FF;
+}
+
+/* ----------------------------------------------- \\
+** Typography
+** ----------------------------------------------- */
+
+html, body {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Besley', system-ui, Arial, sans-serif;
+    font-size: 18px;
+}
+
+h1 {
+    font-weight: 750;
+    font-size: 6.4rem;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin: 70px 0 0;
+}
+
+h2 {
+    font-family: 'Familjen Grotesk', system-ui, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 2.8rem;
+    letter-spacing: -.5px;
+    line-height: 1;
+    margin: 24px 0 0;
+}
+
+h3 {
+    font-family: 'Oswald', system-ui, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: -.2px;
+    line-height: 1.3;
+    margin: 15px auto 0;
+    width: 90%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid;
+}
+
+@media screen and (max-width: 767px) {
+
+    h1 {
+        font-size: 2.2rem;
+        letter-spacing: -1px;
+        margin-top: 20px;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+        margin-top: 16px;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+    
+}
+
+/* ----------------------------------------------- \\
+** Standard Elements & High-Level Infrastructure
+** ----------------------------------------------- */
+
+body {
+    margin: 0;
+    position: relative;
+}
+
+body::before {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/hero-gradient.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: 0;
+    top: -100px;
+    z-index: -1;
+    opacity: 100%;
+}
+
+.container {
+    width: 84%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;;
+}
+
+.button {
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1;
+    font-size: .96rem;
+    font-family: 'Familjen Grotesk', system-ui, Arial, sans-serif;
+    padding: 12px 24px 14px;
+    color: #000;
+    border: 1px solid;
+    background: none;
+}
+
+.hideMd {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+
+    body::before {
+        background-size: 120%;
+        left: -10%;
+        top: 20px;
+    }
+
+    .button {
+        font-size: .8rem;
+        padding: 8px 14px 10px;
+    }
+
+    .hideMd {
+        display: initial;
+    }
+    
+}
+
+/* ----------------------------------------------- \\
+** Header
+** ----------------------------------------------- */
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 0;
+}
+
+.header__logo {
+    width: 54%;
+    max-width: 270px;
+}
+
+/* ----------------------------------------------- \\
+** Hero
+** ----------------------------------------------- */
+
+#hero {
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+#hero p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .74rem;
+    font-style: italic;
+    margin: 50px 0;
+}
+
+#hero p a {
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 767px) {
+
+    #hero {
+        padding-bottom: 50px;
+    }
+
+    #hero p {
+        text-align: left;
+        width: 96%;
+        font-size: .64rem;
+        line-height: 170%;
+        margin: 26px auto 0;
+    }
+    
+}
+
+/* ----------------------------------------------- \\
+** Gallery
+** ----------------------------------------------- */
+
+#gallery .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+}
+
+.product {
+    width: 32%;
+    text-align: center;
+    box-shadow: #00000014 -2px 2px 6px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    padding-bottom: 34px;
+}
+
+.product img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+.product__categories {
+    margin: 22px 0 0;
+    font-size: .7rem;
+    color: var(--color__vPurple);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+}
+
+.product__details {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: 20px auto 28px;
+}
+
+.product__details p {
+    margin: 0;
+    font-size: .82rem;
+    font-style: italic;
+}
+
+.product__brand,
+.product__price {
+    font-style: normal;
+    font-weight: 600;
+}
+
+.product .button {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .74rem;
+    color: var(--color__vPurple);
+    padding: 13px 20px;
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+    transition: all .3s;
+}
+
+.product .button:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 767px) {
+
+    #gallery .container {
+        flex-direction: column;
+    }
+
+    .product {
+        width: 100%;
+    }
+
+    .product__categories {
+        font-size: .6rem;
+    }
+
+    .product__details {
+        margin: 20px auto 25px;
+    }
+    
+}
